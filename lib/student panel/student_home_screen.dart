@@ -168,13 +168,6 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                     ),
                   ),
                   const Divider(thickness: 2),
-                  ElevatedButton(
-                      onPressed: () {
-                        print('Adding Task');
-                        firestore.collection('tasks').doc().set({'date': date});
-                        Fluttertoast.showToast(msg: 'Task added successfully');
-                      },
-                      child: Text('Add Record')),
                   Expanded(
                       child: StreamBuilder<QuerySnapshot>(
                     stream: coursesRef!.orderBy('index').snapshots(),
@@ -203,8 +196,8 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                                     height: screenHeight / 4,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/mc.jpg'))),
+                                            image: NetworkImage(snapshot.data!
+                                                .docs[index]['photoID']))),
                                   ),
                                   Expanded(
                                     child: ListTile(

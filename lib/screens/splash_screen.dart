@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:attendance_system/screens/task_screen.dart';
 import 'package:attendance_system/student%20panel/student_home_screen.dart';
 import 'package:attendance_system/student%20panel/view_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,13 +53,14 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => TaskScreen(),
+            builder: (context) => const StudentHomeScreen(),
           ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('SAMS')));
+    return Scaffold(
+        body: Center(child: Image.asset('assets/images/splash.jpg')));
   }
 }
